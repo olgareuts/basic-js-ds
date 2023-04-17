@@ -1,24 +1,26 @@
 
- class ListNode {
-    constructor(x) {
-      this.value = x;
-     this.next = null;
-   }
-removeKFromList(l, k) {
-  if (!l) {
-    return null;
+class Stack {
+  constructor () {
+    this.stack = [];
+  }
+  push(element) {
+    this.stack.push(element);
   }
 
-  if (l.value === k) {
-    return l.next ? removeKFromList(l.next, k) : null;
-  } else {
-    l.next = removeKFromList(l.next, k);
+  pop() {
+    return this.stack.pop();
   }
 
-  return l;
-
+  peek() {
+    return this.stack[this.stack.length-1]
+  }
 }
-}
-let a = new ListNode();
 
-console.log(a.removeKFromList([3, 1, 2, 3, 4, 5], 3))
+const stack = new Stack();
+stack.push(2);
+stack.push(5);
+stack.push(8);
+stack.push(9);
+stack.pop();
+console.log(stack)
+console.log(stack.peek())
